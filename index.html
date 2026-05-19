@@ -8,12 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- MathJax for rendering LaTeX formulas -->
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- FontAwesome for professional icons -->
+    <!-- Chart.js Annotation Plugin for the vertical age indicator line -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&display=swap');
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
@@ -53,10 +53,10 @@
                         Analyzing Cobb 500 Broiler Growth under Malaysian Tropical Heat Stress
                     </h2>
                     <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                        In commercial Malaysian poultry farming (Semenyih, Johor, Kedah), broilers are highly susceptible to heat-induced stress due to high ambient temperatures ($28^\circ\text{C}$ to $34^\circ\text{C}$) and relative humidity exceeding $80\%$. In your animal husbandry studies, optimizing the **Feed Conversion Ratio (FCR)** is key to profitability.
+                        In commercial Malaysian poultry farming (Semenyih, Johor, Kedah), broilers are highly susceptible to heat-induced stress due to high ambient temperatures (28°C to 34°C) and relative humidity exceeding 80%. In your animal husbandry studies, optimizing the Feed Conversion Ratio (FCR) is key to profitability.
                     </p>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        By applying differential calculus, we model broiler weight over time using a sigmoidal growth function $f(x)$. The first derivative **$f'(x)$** represents the **Instantaneous Daily Growth Rate** (grams/day). Finding the inflection point where $f''(x) = 0$ identifies peak biological feed efficiency, helping Malaysian managers schedule the exact optimal slaughter day to avoid wasting feed on thermal maintenance.
+                        By applying differential calculus, we model broiler weight over time using a sigmoidal growth function f(x). The first derivative f'(x) represents the Instantaneous Daily Growth Rate (grams/day). Finding the inflection point where f''(x) = 0 identifies peak biological feed efficiency, helping Malaysian managers schedule the exact optimal harvesting day to avoid wasting feed on thermal maintenance.
                     </p>
                 </div>
                 <div class="lg:w-1/3 w-full bg-slate-50 border border-slate-200 p-4 rounded-xl">
@@ -75,15 +75,15 @@
 
                     <div class="space-y-2 text-xs">
                         <div class="flex justify-between border-b border-slate-200/60 pb-1">
-                            <span class="text-slate-500">Asymptotic Max Weight ($L$):</span>
+                            <span class="text-slate-500">Asymptotic Max Weight (L):</span>
                             <span id="param-L" class="font-semibold text-slate-800">3,400g</span>
                         </div>
                         <div class="flex justify-between border-b border-slate-200/60 pb-1">
-                            <span class="text-slate-500">Growth Velocity ($k$):</span>
+                            <span class="text-slate-500">Growth Velocity (k):</span>
                             <span id="param-k" class="font-semibold text-slate-800">0.125</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-slate-500">Hatch Weight ($W_0$):</span>
+                            <span class="text-slate-500">Hatch Weight (W0):</span>
                             <span class="font-semibold text-slate-800">~42g</span>
                         </div>
                     </div>
@@ -91,40 +91,40 @@
             </div>
         </div>
 
-        <!-- Math Formulas Display -->
+        <!-- Math Formulas Display (Plain Text Formulas, No $ symbols) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 shadow-sm border border-slate-700/30">
                 <div class="flex items-center gap-2 text-emerald-400 mb-3">
                     <i class="fa-solid fa-square-root-variable text-lg"></i>
-                    <h3 class="font-bold text-sm uppercase tracking-wider">Growth Function: $f(x)$</h3>
+                    <h3 class="font-bold text-sm uppercase tracking-wider">Growth Function: f(x)</h3>
                 </div>
                 <p class="text-slate-300 text-xs mb-4">
-                    The cumulative body weight of the broiler at age $x$ (days) modeled by the Logistic Growth Curve:
+                    The cumulative body weight of the broiler at age x (days) modeled by the Logistic Growth Curve:
                 </p>
-                <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-700/40 text-center text-sm md:text-base mb-3 font-mono">
-                    $$f(x) = \frac{L}{1 + a e^{-k x}}$$
+                <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-700/40 text-center text-sm md:text-base mb-3 font-mono text-emerald-300 font-bold">
+                    f(x) = L / (1 + a * e^(-k * x))
                 </div>
                 <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-400">
-                    <div>• $L$: Maximum asymptotic weight (g)</div>
-                    <div>• $a$: Biological scaling constant ($a \approx 80$)</div>
-                    <div>• $k$: Growth rate coefficient</div>
-                    <div>• $x$: Age of the broiler (days)</div>
+                    <div>• L: Maximum asymptotic weight (g)</div>
+                    <div>• a: Biological scaling constant (a ≈ 80)</div>
+                    <div>• k: Growth rate coefficient</div>
+                    <div>• x: Age of the broiler (days)</div>
                 </div>
             </div>
 
             <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 shadow-sm border border-slate-700/30">
                 <div class="flex items-center gap-2 text-amber-400 mb-3">
                     <i class="fa-solid fa-chart-line text-lg"></i>
-                    <h3 class="font-bold text-sm uppercase tracking-wider">Daily Weight Gain: $f'(x)$ (Derivative)</h3>
+                    <h3 class="font-bold text-sm uppercase tracking-wider">Daily Weight Gain: f'(x) (Derivative)</h3>
                 </div>
                 <p class="text-slate-300 text-xs mb-4">
                     The rate of change of cumulative weight with respect to time, giving daily weight gain (g/day):
                 </p>
-                <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-700/40 text-center text-sm md:text-base mb-3 font-mono">
-                    $$f'(x) = \frac{L \cdot a \cdot k \cdot e^{-k x}}{(1 + a e^{-k x})^2} = k \cdot f(x) \left(1 - \frac{f(x)}{L}\right)$$
+                <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-700/40 text-center text-sm md:text-base mb-3 font-mono text-amber-300 font-bold">
+                    f'(x) = k * f(x) * (1 - f(x) / L)
                 </div>
                 <div class="text-[11px] text-slate-400 leading-relaxed">
-                    <span class="text-amber-300 font-semibold"><i class="fa-solid fa-lightbulb"></i> Husbandry Secret:</span> As weight $f(x)$ approaches $L$ (mature limit), growth rate $f'(x)$ declines to $0$. The peak rate occurs exactly at $f(x) = L/2$ (the Inflection Point).
+                    <span class="text-amber-300 font-semibold"><i class="fa-solid fa-lightbulb"></i> Husbandry Secret:</span> As weight f(x) approaches L (mature limit), growth rate f'(x) declines to 0. The peak rate occurs exactly at f(x) = L/2 (the Inflection Point).
                 </div>
             </div>
         </div>
@@ -141,8 +141,8 @@
                             <p class="text-xs text-slate-500">Click on any plot node or adjust the slider below to inspect the growth derivative.</p>
                         </div>
                         <div class="flex gap-4 text-xs font-semibold">
-                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-emerald-600 rounded-sm inline-block"></span>Weight $f(x)$</span>
-                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-amber-500 rounded-sm inline-block"></span>Rate $f'(x)$</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-emerald-600 rounded-sm inline-block"></span>Weight f(x)</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-amber-500 rounded-sm inline-block"></span>Rate f'(x)</span>
                         </div>
                     </div>
 
@@ -194,11 +194,11 @@
                         <!-- Derivative & Function value widgets -->
                         <div class="grid grid-cols-2 gap-3">
                             <div class="bg-emerald-950/50 p-3 rounded-xl border border-emerald-800/40 text-center">
-                                <div class="text-[10px] text-emerald-300 uppercase tracking-wider font-semibold">Total Weight $f(x)$</div>
+                                <div class="text-[10px] text-emerald-300 uppercase tracking-wider font-semibold">Total Weight f(x)</div>
                                 <div class="text-xl font-extrabold text-emerald-100 mt-1"><span id="inspect-weight">0</span><span class="text-xs text-emerald-300 font-normal"> g</span></div>
                             </div>
                             <div class="bg-amber-950/40 p-3 rounded-xl border border-amber-500/30 text-center">
-                                <div class="text-[10px] text-amber-300 uppercase tracking-wider font-semibold">Gain Rate $f'(x)$</div>
+                                <div class="text-[10px] text-amber-300 uppercase tracking-wider font-semibold">Gain Rate f'(x)</div>
                                 <div class="text-xl font-extrabold text-amber-400 mt-1"><span id="inspect-derivative">0</span><span class="text-xs text-amber-300 font-normal"> g/day</span></div>
                             </div>
                         </div>
@@ -221,7 +221,7 @@
                     </div>
                 </div>
 
-                <!-- Adaptive Bio-Action Recommedation -->
+                <!-- Adaptive Bio-Action Recommendation -->
                 <div class="mt-6 pt-4 border-t border-emerald-800/50 bg-emerald-950/20 p-3 rounded-xl">
                     <div class="flex items-start gap-2.5">
                         <div class="text-amber-400 text-sm mt-0.5"><i class="fa-solid fa-triangle-exclamation"></i></div>
@@ -239,14 +239,14 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
                 <div class="text-emerald-700 mb-2"><i class="fa-solid fa-temperature-arrow-up text-xl"></i></div>
-                <h4 class="font-bold text-sm text-slate-900 mb-1">Thermal Deceleration ($f'(x)$ Drop)</h4>
+                <h4 class="font-bold text-sm text-slate-900 mb-1">Thermal Deceleration (f'(x) Drop)</h4>
                 <p class="text-xs text-slate-500 leading-relaxed">
-                    Under heat stress (Open-House model), the first derivative $f'(x)$ peaks much sooner but at a significantly lower magnitude. Due to hyperventilation (panting), energy is diverted to respiration instead of cellular protein synthesis.
+                    Under heat stress (Open-House model), the first derivative f'(x) peaks much sooner but at a significantly lower magnitude. Due to hyperventilation (panting), energy is diverted to respiration instead of cellular protein synthesis.
                 </p>
             </div>
             <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
                 <div class="text-emerald-700 mb-2"><i class="fa-solid fa-wheat-awn text-xl"></i></div>
-                <h4 class="font-bold text-sm text-slate-900 mb-1">Inflection Point ($f''(x) = 0$)</h4>
+                <h4 class="font-bold text-sm text-slate-900 mb-1">Inflection Point (f''(x) = 0)</h4>
                 <p class="text-xs text-slate-500 leading-relaxed">
                     This point indicates the peak daily growth velocity. Past this point, growth decelerates (negative acceleration). For broiler farmers, FCR starts deteriorating quickly after this point, marking the start of the selling window.
                 </p>
@@ -255,7 +255,7 @@
                 <div class="text-emerald-700 mb-2"><i class="fa-solid fa-hand-holding-dollar text-xl"></i></div>
                 <h4 class="font-bold text-sm text-slate-900 mb-1">Economic Cutoff Decision</h4>
                 <p class="text-xs text-slate-500 leading-relaxed">
-                    Once $f'(x)$ falls below 50g/day (in late stages), keeping chickens alive is unprofitable as cumulative feed cost exceeds cumulative weight revenue. Derivatives solve the optimal broiler marketing problem instantly.
+                    Once f'(x) falls below 50g/day (in late stages), keeping chickens alive is unprofitable as cumulative feed cost exceeds cumulative weight revenue. Derivatives solve the optimal broiler marketing problem instantly.
                 </p>
             </div>
         </div>
@@ -286,8 +286,8 @@
 
     <footer class="bg-slate-900 text-slate-400 text-center py-6 mt-12 border-t border-slate-800 text-xs">
         <div class="max-w-7xl mx-auto px-4">
-            <p>© 2026 MyAnihub Interactive Education Portal. Developed in collaboration with Animal Husbandry Technologists, Malaysia.</p>
-            <p class="mt-2 text-slate-500">Formulas rendered via MathJax Standard LaTeX. Chart engine powered by Chart.js v4.</p>
+            <p>© 2026 MyAnihub Interactive Education Portal. Developed for Animal Husbandry Technology Students in Malaysia.</p>
+            <p class="mt-2 text-slate-500">Chart engine powered by Chart.js v4.</p>
         </div>
     </footer>
 
@@ -323,26 +323,26 @@
             return p.k * fx * (1 - (fx / p.L));
         }
 
-        // Determine growth stage & layman explanation
+        // Determine growth stage & layman explanation (strictly concatenated, no '$' characters)
         function getInterpretation(day, weight, rate, scenario) {
             const isHeatStressed = (scenario === 'open');
             
             if (day <= 7) {
                 return {
                     stage: "Starter Phase (Brooding Phase)",
-                    explanation: `Chicks are focused on internal organ development and skeletal bone frame formation. At day ${day}, the absolute growth rate is ${rate.toFixed(1)} g/day. Relative growth is high, but physical scale is low. Keeping ambient temperatures strict at 32°C is critical.`,
+                    explanation: "Chicks are focused on internal organ development and skeletal bone frame formation. At day " + day + ", the absolute growth rate is " + rate.toFixed(1) + " g/day. Relative growth is high, but physical scale is low. Keeping ambient temperatures strict at 32°C is critical.",
                     action: "Prioritize keeping the broiler shed dry and warm. Monitor chick clustering behavior (flocking pattern) to verify no drafts are present."
                 };
             } else if (day <= 14) {
                 return {
                     stage: "Starter Phase (Week 2)",
-                    explanation: `Rapid gut development and immune system reinforcement are occurring. Growth rate is escalating to ${rate.toFixed(1)} g/day. Muscle mass (breast meat deposition) is starting. Feed formulation is crucial.`,
+                    explanation: "Rapid gut development and immune system reinforcement are occurring. Growth rate is escalating to " + rate.toFixed(1) + " g/day. Muscle mass (breast meat deposition) is starting. Feed formulation is crucial.",
                     action: "Check MyGAP standards for vaccine administration (Newcastle Disease) and clean water delivery pressure."
                 };
             } else if (day <= 28) {
                 return {
                     stage: "Grower Phase (Active Hypertrophy)",
-                    explanation: `Muscle hypertrophy (expansion of fiber volume) is surging. Broiler weight is expanding exponentially at ${rate.toFixed(1)} g/day. Energy requirements are rising rapidly. Proper ambient airflow is needed to flush out metabolic ammonia.`,
+                    explanation: "Muscle hypertrophy (expansion of fiber volume) is surging. Broiler weight is expanding exponentially at " + rate.toFixed(1) + " g/day. Energy requirements are rising rapidly. Proper ambient airflow is needed to flush out metabolic ammonia.",
                     action: "Perform weekly flock weighing checks. Target optimal feed distribution lines to prevent aggressive feeding hierarchy behaviors."
                 };
             } else if (day <= 35) {
@@ -353,19 +353,19 @@
                 
                 return {
                     stage: "Finisher Phase (Inflection Window)",
-                    explanation: `${prefix} At day ${day}, the broiler reaches peak gain velocity of ${rate.toFixed(1)} g/day. The growth curve switches from acceleration to deceleration. Past this moment, each gram of gain becomes progressively more expensive.`,
+                    explanation: prefix + " At day " + day + ", the broiler reaches peak gain velocity of " + rate.toFixed(1) + " g/day. The growth curve switches from acceleration to deceleration. Past this moment, each gram of gain becomes progressively more expensive.",
                     action: "Ensure ventilation fans run at max capacity. Under tropical midday humidity, lower absolute crowd densities to limit heat accumulation."
                 };
             } else if (day <= 42) {
                 return {
                     stage: "Finisher Phase (Deceleration & Market Window)",
-                    explanation: `Growth rate is slowing down to ${rate.toFixed(1)} g/day. Muscle building slows as organ capacity and body weight demand more maintenance energy. Keep them longer, and your feeding margin will vanish.`,
+                    explanation: "Growth rate is slowing down to " + rate.toFixed(1) + " g/day. Muscle building slows as organ capacity and body weight demand more maintenance energy. Keep them longer, and your feeding margin will vanish.",
                     action: "Perfect harvest window (usually target 2.1kg - 2.5kg standard Malaysian wholesale whole bird weight). Arrange logistics with the processing plant."
                 };
             } else {
                 return {
                     stage: "Over-Mature Stage (High FCR Disadvantage)",
-                    explanation: `At day ${day}, the broiler gain rate has fallen back to ${rate.toFixed(1)} g/day. Almost all feed energy is wasted on metabolic temperature regulation and fat layer deposit rather than protein build.`,
+                    explanation: "At day " + day + ", the broiler gain rate has fallen back to " + rate.toFixed(1) + " g/day. Almost all feed energy is wasted on metabolic temperature regulation and fat layer deposit rather than protein build.",
                     action: "High mortality hazard due to cardiac stress under Malaysian sun. Immediate clearance / depopulation of the shed is strongly recommended."
                 };
             }
@@ -407,9 +407,8 @@
             document.getElementById('daySlider').value = day;
             document.getElementById('sliderValueDisplay').innerText = day;
 
-            // Chart Indicator line redraw (optional/visual benefit)
+            // Chart Indicator line redraw
             if (chartInstance) {
-                // We update the chart's custom vertical line indicator
                 chartInstance.options.plugins.annotation = {
                     annotations: {
                         line1: {
@@ -420,9 +419,14 @@
                             borderWidth: 2,
                             borderDash: [5, 5],
                             label: {
-                                enabled: true,
-                                content: `Day ${day}`,
-                                position: 'start'
+                                display: true,
+                                content: 'Day ' + day,
+                                position: 'start',
+                                backgroundColor: 'rgba(245, 158, 11, 0.9)',
+                                font: {
+                                    size: 10,
+                                    weight: 'bold'
+                                }
                             }
                         }
                     }
@@ -509,7 +513,7 @@
                                 label: function(context) {
                                     let label = context.dataset.label || '';
                                     if (label) {
-                                        label += ': ';
+                                        label = label.split(' ')[0] + ': ';
                                     }
                                     if (context.parsed.y !== null) {
                                         label += context.parsed.y + (context.datasetIndex === 0 ? 'g' : 'g/day');
